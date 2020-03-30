@@ -1,13 +1,15 @@
-const chance = require('chance').Chance();
 const Studio = require('../lib/models/Studio');
+const chance = require('chance').Chance();
 
-
+// specifying the number of blogs to create with our seed function
 module.exports = async({ studiosToCreate = 10 } = {}) => {
-  const studioPossibilities = ['fire', 'water', 'earth', 'air'];
-
+  // creating blogs
+  // creating an array of blogsToCreate length
+  // map through the array
+  // -> for each item in the array we create an object with { author, title, content }
+  // for each blog in the mapped array we create a blog in our mongodb
   const studios = await Studio.create([...Array(studiosToCreate)].map(() => ({
-    name: `${chance.unique()} ${chance.pickone(studioPossibilities)}`,
-    description: chance.sentence({ words: 3 })
-  }),
-  ),);
+    name: chance.unique(chance.animal),
+    content: chance.paragraph({ words: 3 })
+  })));
 };
