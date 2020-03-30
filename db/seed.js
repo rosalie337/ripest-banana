@@ -9,6 +9,6 @@ module.exports = async({ studiosToCreate = 10 } = {}) => {
   // -> for each item in the array we create an object with studio
   // for each studio in the mapped array we create a studio in our mongodb
   const studios = await Studio.create([...Array(studiosToCreate)].map(() => ({
-    name: chance.unique(chance.animal, { words: 3 }),
+    name: chance.unique(),
   })));
 };

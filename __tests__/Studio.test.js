@@ -30,7 +30,7 @@ describe('studio routes', () => {
       });
   });
 });
-it('gets an ingredient by id', async() => {
+it('gets a studio by id', async() => {
   const studio = await getStudio();
 
   return request(app)
